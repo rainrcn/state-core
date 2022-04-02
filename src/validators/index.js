@@ -41,7 +41,7 @@ const errorMessages = {
   changeType: "provided value of changes should be an object",
   changeField:
     'it seams you want to change a field in the state which is not specified in the "initial" state',
-  default: "an unknown error accured in `state-core` package",
+  default: "an unknown error accured in `statecore-js` package",
 };
 
 const errorHandler = curry(throwError)(errorMessages);

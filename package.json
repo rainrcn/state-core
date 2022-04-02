@@ -1,22 +1,22 @@
 {
-  "name": "state-core",
-  "version": "1.0.0",
+  "name": "statecore-js",
+  "version": "1.2.0",
   "description": "Tiny, simple, and robust technique for defining and acting with local states",
-  "main": "lib/cjs/state-core.js",
-  "module": "lib/es/state-core.js",
-  "unpkg": "lib/umd/state-core.min.js",
-  "jsdelivr": "lib/umd/state-core.min.js",
+  "main": "lib/cjs/statecore.js",
+  "module": "lib/es/statecore.js",
+  "unpkg": "lib/umd/statecore.min.js",
+  "jsdelivr": "lib/umd/statecore.min.js",
   "types": "lib/types.d.ts",
   "author": "rainrcn <rainrcn@qq.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rainrcn/state-core"
+    "url": "git+https://github.com/rainrcn/statecore-js"
   },
   "bugs": {
-    "url": "https://github.com/rainrcn/state-core/issues"
+    "url": "https://github.com/rainrcn/statecore-js/issues"
   },
-  "homepage": "https://github.com/rainrcn/state-core#readme",
+  "homepage": "https://github.com/rainrcn/statecore-js#readme",
   "keywords": [
     "state",
     "state management",

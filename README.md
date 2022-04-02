@@ -1,4 +1,4 @@
-# State &middot; [![gitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rainrcn/state-core/blob/main/LICENSE)
+# State &middot; [![gitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rainrcn/statecore-js/blob/main/LICENSE)
 
 :zap: Tiny, simple, and robust technique for defining and acting with local states (for all js environments - node, browser, etc.)
 
@@ -48,7 +48,7 @@ The example above lacks control over the mutations and consumption, which can le
 :white_check_mark:
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ x: 0, y: 1 });
 
@@ -76,7 +76,7 @@ function yetAnotherFn() {
 We also can track the changes in items:
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create(
   { x: 0, y: 1 },
@@ -100,7 +100,7 @@ const [getState, setState] = state.create(
 We can use the subset of the state in some execution contexts:
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ x: 5, y: 7 });
 
@@ -134,19 +134,19 @@ And much more...
 You can install this library as an npm package or download it from the CDN and use it in node or browser:
 
 ```bash
-npm install state-core
+npm install statecore-js
 ```
 
 or
 
 ```bash
-yarn add state-core
+yarn add statecore-js
 ```
 
 or
 
 ```html
-<script src="https://xxxx/state-core.js"></script>
+<script src="https://xxxx/statecore.js"></script>
 
 <script>
   // now it is available in `window` (window.state)
@@ -160,7 +160,7 @@ or
 The default export has a method called `create`, which is supposed to be a function to create a state:
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 // state.create
 
@@ -177,7 +177,7 @@ import state from "state-core";
 `initial state` is a base structure and a value for the state. It should be a non-empty object
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 /*
 const [getState, setState] = state.create(); // ❌ error - initial state is required
@@ -201,7 +201,7 @@ see example below:
 if `handler` is a function
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create(
   { x: 2, y: 3, z: 5 },
@@ -219,7 +219,7 @@ setState({ x: 7, y: 11, z: 13 });
 if `handler` is an object
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create(
   { x: 2, y: 3, z: 5 },
@@ -253,7 +253,7 @@ setState({ x: 7, y: 11, z: 13 });
 use observe `handler`
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState, observeState, unobserveState] = state.create({
   x: 2,
@@ -282,7 +282,7 @@ unobserveState(handleStateUpdate);
 `getState` is the first element of the pair returned by `create` function. It will return the current state or the subset of the current state depending on how it was called. It has an optional parameter `selector`
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ p1: 509, p2: 521 });
 
@@ -302,7 +302,7 @@ console.log(p2); // 521
 `selector` is a function that is supposed to be passed (optional) as an argument to `getState`. It receives the current state and returns a subset of the state
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ p1: 389, p2: 397, p3: 401 });
 
@@ -321,7 +321,7 @@ function someFn() {
 **NOTE: the change object can't contain a field that is not specified in the "initial" state**
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ x: 0, y: 0 });
 
@@ -335,7 +335,7 @@ setState({ x: -11, y: 11 }); // ✅ ok
 `setState` also can receive a function which will be called with the current state and it is supposed to return the change object
 
 ```javascript
-import state from "state-core";
+import state from "statecore-js";
 
 const [getState, setState] = state.create({ x: 0, y: 0 });
 

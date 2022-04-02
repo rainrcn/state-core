@@ -35,7 +35,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      file: "lib/cjs/state-core.js",
+      file: "lib/cjs/statecore.js",
       format: "cjs",
       exports: "default",
     },
@@ -44,7 +44,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      file: "lib/es/state-core.js",
+      file: "lib/es/statecore.js",
       format: "es",
     },
     plugins: commonPlugins,
@@ -52,7 +52,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      file: "lib/umd/state-core.js",
+      file: "lib/umd/statecore.js",
       format: "umd",
       name: "state",
     },
@@ -61,7 +61,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      file: "lib/umd/state-core.min.js",
+      file: "lib/umd/statecore.min.js",
       format: "umd",
       name: "state",
     },

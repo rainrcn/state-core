@@ -1,5 +1,5 @@
-// Type definitions for state-core v1.0.0
-// Project: state-core
+// Type definitions for statecore-js v1.0.0
+// Project: statecore-js
 // Definitions by: rainrcn rainrcn@qq.com
 
 export as namespace state;
