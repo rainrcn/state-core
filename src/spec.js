@@ -59,11 +59,10 @@ describe("createState", () => {
   test("should return a pair of functions when receives a non-empty object", () => {
     const result = state.create({ x: 1, y: 2 });
 
-    expect(result.length).toEqual(4);
+    expect(result.length).toEqual(3);
     expect(result[0]).toBeInstanceOf(Function);
     expect(result[1]).toBeInstanceOf(Function);
     expect(result[2]).toBeInstanceOf(Function);
-    expect(result[3]).toBeInstanceOf(Function);
   });
 
   // test 5 - check if `createState` (with valid first argument) throws an error when the second

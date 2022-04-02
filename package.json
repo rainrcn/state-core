@@ -1,6 +1,6 @@
 {
   "name": "statecore-js",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Tiny, simple, and robust technique for defining and acting with local states",
   "main": "lib/cjs/statecore.js",
   "module": "lib/es/statecore.js",

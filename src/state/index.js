@@ -5,7 +5,7 @@ function create(initial, handler = {}) {
   validators.initial(initial);
   validators.handler(handler);
 
-  const state = { current: initial, observers: [] };
+  const state = { current: initial, listenerList: [], listenerId: 0 };
 
   const didUpdate = curry(didStateUpdate)(state, handler);
   const update = curry(updateState)(state);
@@ -21,24 +21,28 @@ function create(initial, handler = {}) {
     compose(didUpdate, update, validate, getChanges)(causedChanges);
   }
 
+  function unobserveState(id) {
+    const index = state.listenerList.findIndex((o) => o.id === id);
+
+    if (index > -1) {
+      state.listenerList.splice(index, 1);
+    }
+  }
+
   function observeState(observeHandler) {
     validators.handler(observeHandler);
 
-    if (state.observers.includes(observeHandler)) {
-      return false;
-    }
+    const newListener = {
+      id: ++state.listenerId,
+      handler: observeHandler,
+    };
 
-    return state.observers.push(observeHandler) > 0;
+    state.listenerList.push(newListener);
+
+    return () => unobserveState(newListener.id);
   }
 
-  function unobserveState(observeHandler) {
-    validators.handler(observeHandler);
-
-    const index = state.observers.indexOf(observeHandler);
-    return state.observers.splice(index, index < 0 ? 0 : 1).length > 0;
-  }
-
-  return [getState, setState, observeState, unobserveState];
+  return [getState, setState, observeState];
 }
 
 function extractChanges(state, causedChanges) {
@@ -64,8 +68,8 @@ function handleUpdate(state, handler, changes) {
 function didStateUpdate(state, handler, changes) {
   handleUpdate(state, handler, changes);
 
-  for (const listener of state.observers) {
-    handleUpdate(state, listener, changes);
+  for (const listener of state.listenerList) {
+    handleUpdate(state, listener.handler, changes);
   }
 
   return changes;

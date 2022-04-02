@@ -9,10 +9,10 @@ export type Selector = (state: State) => State;
 export type ChangeGetter = (state: State) => State;
 export type GetState = (selector?: Selector) => State;
 export type SetState = (change: State | ChangeGetter) => void;
-export type ObserveState = (handler: StateUpdateHandler | Handlers) => boolean;
-export type UnObserveState = (
+export type UnobserveState = () => void;
+export type ObserveState = (
   handler: StateUpdateHandler | Handlers
-) => boolean;
+) => UnobserveState;
 export type StateUpdateHandler = (update: State) => unknown;
 export type FieldUpdateHandler = (update: any) => unknown;
 export type Handlers = Record<string, FieldUpdateHandler>;
@@ -29,4 +29,4 @@ export type Handlers = Record<string, FieldUpdateHandler>;
 export function create(
   initial: State,
   handler?: StateUpdateHandler | Handlers
-): [GetState, SetState, ObserveState, UnObserveState];
+): [GetState, SetState, ObserveState];
