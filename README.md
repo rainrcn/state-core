@@ -255,7 +255,7 @@ use observe `handler`
 ```javascript
 import state from "statecore-js";
 
-const [getState, setState, observeState, unobserveState] = state.create({
+const [getState, setState, observeState] = state.create({
   x: 2,
   y: 3,
   z: 5,
@@ -265,7 +265,7 @@ function handleStateUpdate(latestState) {
   console.log("hey state has been updated; the new state is:", latestState); // { x: 7, y: 11, z: 13 }
 }
 
-observeState(
+const unobserveState = observeState(
   handleStateUpdate /* will be called immediately after every state update */
 );
 
@@ -274,7 +274,7 @@ setState({ x: 7, y: 11, z: 13 });
 // ...
 
 //or unsubscribe later
-unobserveState(handleStateUpdate);
+unobserveState();
 ```
 
 #### getState
