@@ -1,6 +1,6 @@
-// Type definitions for state-local v0.0.1
-// Project: state-local
-// Definitions by: Suren Atoyan contact@surenatoyan.com
+// Type definitions for state-core v1.0.0
+// Project: state-core
+// Definitions by: rainrcn rainrcn@qq.com
 
 export as namespace state;
 
@@ -9,6 +9,10 @@ export type Selector = (state: State) => State;
 export type ChangeGetter = (state: State) => State;
 export type GetState = (selector?: Selector) => State;
 export type SetState = (change: State | ChangeGetter) => void;
+export type ObserveState = (handler: StateUpdateHandler | Handlers) => boolean;
+export type UnObserveState = (
+  handler: StateUpdateHandler | Handlers
+) => boolean;
 export type StateUpdateHandler = (update: State) => unknown;
 export type FieldUpdateHandler = (update: any) => unknown;
 export type Handlers = Record<string, FieldUpdateHandler>;
@@ -22,4 +26,7 @@ export type Handlers = Record<string, FieldUpdateHandler>;
  * and the all values of that object should be functions, plus they should be called immediately
  * after every update of the corresponding field in the state
  */
-export function create(initial: State, handler?: StateUpdateHandler | Handlers): [GetState, SetState];
+export function create(
+  initial: State,
+  handler?: StateUpdateHandler | Handlers
+): [GetState, SetState, ObserveState, UnObserveState];

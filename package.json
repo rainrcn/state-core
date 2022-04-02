@@ -1,22 +1,22 @@
 {
-  "name": "state-local",
-  "version": "1.0.7",
+  "name": "state-core",
+  "version": "1.0.0",
   "description": "Tiny, simple, and robust technique for defining and acting with local states",
-  "main": "lib/cjs/state-local.js",
-  "module": "lib/es/state-local.js",
-  "unpkg": "lib/umd/state-local.min.js",
-  "jsdelivr": "lib/umd/state-local.min.js",
+  "main": "lib/cjs/state-core.js",
+  "module": "lib/es/state-core.js",
+  "unpkg": "lib/umd/state-core.min.js",
+  "jsdelivr": "lib/umd/state-core.min.js",
   "types": "lib/types.d.ts",
-  "author": "Suren Atoyan <contact@surenatoyan.com>",
+  "author": "rainrcn <rainrcn@qq.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suren-atoyan/state-local"
+    "url": "git+https://github.com/rainrcn/state-core"
   },
   "bugs": {
-    "url": "https://github.com/suren-atoyan/state-local/issues"
+    "url": "https://github.com/rainrcn/state-core/issues"
   },
-  "homepage": "https://github.com/suren-atoyan/state-local#readme",
+  "homepage": "https://github.com/rainrcn/state-core#readme",
   "keywords": [
     "state",
     "state management",
